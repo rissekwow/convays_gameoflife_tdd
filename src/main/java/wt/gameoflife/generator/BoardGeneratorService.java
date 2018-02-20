@@ -17,7 +17,7 @@ public class BoardGeneratorService {
 	}
 
 	public Board generateRandomBoard(int xLength, int yLength, int livesCount) {
-		if (livesCount >= (xLength * yLength))
+		if (livesCount > (xLength * yLength))
 			throw new RuntimeException("Not enought space in arrays for living cells");
 		CellState[][] cellStateBoard = new CellState[xLength][];
 		for (int x = 0; x < xLength; x++) {

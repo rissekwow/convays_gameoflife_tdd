@@ -1,77 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="pl" data-ng-app='canvasApp'>
 <head>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
-
-.blockRow {
-	overflow: auto;
-}
-
-.blockAlive {
-	width: 10px;
-	height: 10px;
-	background-color: black;
-	float:left;
-	border-style: dotted;
-}
-
-.blockDead {
-	width: 10px;
-	height: 10px;
-	background-color: white;
-	float:left;
-	border-style: dotted;
-}
-</style>
+<title>The Game of Life</title>
 </head>
-<body>
-
-	<div id='arena'></div>
-	
-	
-<script th:inline="javascript">
-/*<![CDATA[*/
-
-var iterator = 0;
-	
-function refreshData()
-{
-   x = 2;
-  	
-   newPop();
-   newPop();
-   
-   var board = [[${board.convertToCellStateArray()}]];
-   
-   var html = '';
-   for (var x=0; x<board.length; x++) {
-	   html += '<div class="blockRow">';
-	   console.log(board[x].length);
-	   for (var y=0; y<board[x].length; y++) {
-		   if (board[x][y] === 'ALIVE')
-		   html += '<div class="blockAlive"></div>'
-		   else html += '<div class="blockDead"></div>';
-	   }
-	   html += '</div"><br/>';
-	  
-   }
-   document.getElementById("arena").innerHTML = html;
-   iterator++;
-   setTimeout(refreshData, x*1000); 
-}
-
-function newPop() {
-	[[${board.generateNewPopulation()}]];
-}
-
-refreshData();
-
-/*]]>*/
-</script>
-
-
+<body data-ng-controller='gameOfLifeController'>
+<canvas id="gameOfLife" ></canvas>
 </body>
+<script th:src="@{/webjars/jquery/2.1.1/jquery.js}"></script>
+<script th:src="@{/webjars/angularjs/1.6.4/angular.js}"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
+<script th:src="@{/app/app.module.js}"></script>
+<script th:src="@{/app/components/game-of-life/game-of-life.controller.js}"></script>
+<script th:src="@{/app/components/game-of-life/game-of-life.service.js}"></script>
+
 </html>
