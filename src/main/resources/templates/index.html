@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+
+.blockRow {
+	overflow: auto;
+}
+
+.blockAlive {
+	width: 10px;
+	height: 10px;
+	background-color: black;
+	float:left;
+	border-style: dotted;
+}
+
+.blockDead {
+	width: 10px;
+	height: 10px;
+	background-color: white;
+	float:left;
+	border-style: dotted;
+}
+</style>
+</head>
+<body>
+
+	<div id='arena'></div>
+	
+	
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+var iterator = 0;
+	
+function refreshData()
+{
+   x = 2;
+  	
+   newPop();
+   newPop();
+   
+   var board = [[${board.convertToCellStateArray()}]];
+   
+   var html = '';
+   for (var x=0; x<board.length; x++) {
+	   html += '<div class="blockRow">';
+	   console.log(board[x].length);
+	   for (var y=0; y<board[x].length; y++) {
+		   if (board[x][y] === 'ALIVE')
+		   html += '<div class="blockAlive"></div>'
+		   else html += '<div class="blockDead"></div>';
+	   }
+	   html += '</div"><br/>';
+	  
+   }
+   document.getElementById("arena").innerHTML = html;
+   iterator++;
+   setTimeout(refreshData, x*1000); 
+}
+
+function newPop() {
+	[[${board.generateNewPopulation()}]];
+}
+
+refreshData();
+
+/*]]>*/
+</script>
+
+
+</body>
+</html>
