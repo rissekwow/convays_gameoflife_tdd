@@ -17,8 +17,6 @@ public class BoardCommandToBoardConverter implements Converter<BoardCommand, Boa
 			return null;
 		}
 		
-		
-
 		int[][] boardState = source.getBoardStates();
 		
 		CellState[][] cellStates = new CellState[boardState.length][];

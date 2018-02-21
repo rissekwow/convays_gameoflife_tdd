@@ -6,7 +6,7 @@ gameOfLifeService.$inject = [ '$http' ];
 
 function gameOfLifeService($http) {
 	var ctrl = this;
-
+	
 	ctrl.postRequestForRandomGameOfLifeBoard = function(xLength, yLength, aliveCount) {
 		var boardParamsCommand = new Object();
 		boardParamsCommand.xLength = xLength;
