@@ -26,17 +26,13 @@
 				<input type="number" data-ng-model="pix"> <br/>
 				<label>Update delay in ms:</label>
 				<input type="number" data-ng-model="delay"> <br/>
-				<label>Alive cell color:</label>
-				<input id='aliveColor' type="text" data-ng-model="aliveColor" > <br/>
-				<label>Dead cell color:</label>
-				<input id='deadColor' type="text" data-ng-model="deadColor"> <br/>
 			</div>
 		</div>
 		<br /> <br />
 		<div class="row">
 			<div class="col-lg-12">
 				<button type="button" class="btn btn-primary"
-					data-ng-click="startGameOfLife(columns, rows, aliveCells, pix, delay, aliveColor, deadColor)">Start
+					data-ng-click="startGameOfLife(columns, rows, aliveCells, pix, delay)">Start
 					The Game Of Life</button>
 			</div>
 		</div>
@@ -48,11 +44,6 @@
 		</div>
 	</div>
 </body>
-<script>
-$(function () {
-    $('#aliveColor').colorpicker();
-    $('#deadColor').colorpicker();
-  });</script>
 <script th:src="@{/webjars/jquery/2.1.1/jquery.js}"></script>
 <script th:src="@{/webjars/angularjs/1.6.4/angular.js}"></script>
 <script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.js}"></script>
