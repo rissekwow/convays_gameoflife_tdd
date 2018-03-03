@@ -1,3 +1,3 @@
 # convays_gameoflife_tdd
 
-http://warm-cliffs-41585.herokuapp.com/gameoflife/
+http://conways-game-of-life-tdd.herokuapp.com/gameoflife/
